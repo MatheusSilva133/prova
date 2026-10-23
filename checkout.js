@@ -1,9 +1,21 @@
 function calcularSubtotal (itens) {
+    let subtotal = 0
 
+    for(let i = 0; i < itens.lenght; i++) {
+        subtotal += itens[i].preco * itens[i].quantidade;
+    }
+
+    return subtotal;
 }
 
 function contarItens (itens) {
+    let total = 0;
 
+    for (let i = 0; i < itens.length; i++) {
+        total += itens[i].quantidade;
+    }
+
+    return total;
 }
 
 function aplicarCupom (subtotal, codigo) {
