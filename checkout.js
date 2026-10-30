@@ -1,14 +1,12 @@
-function calcularSubtotal (itens) {
+function calcularSubtotal(itens) {
     let subtotal = 0
-
-    for(let i = 0; i < itens.lenght; i++) {
-        subtotal += itens[i].preco * itens[i].quantidade;
+    for(const item of itens) {
+        subtotal += item.preco * item.quantidade;
     }
-
     return subtotal;
 }
 
-function contarItens (itens) {
+function contarItens(itens) {
     let total = 0;
 
     for (let i = 0; i < itens.length; i++) {
@@ -34,13 +32,16 @@ function aplicarCupom (subtotal, codigo) {
  }
 
 function finalizarCompras (itens, codigoCupom) {
-    return { subtotal: 0, desconto: 0, total: 0};
+    let subtotal = calcularSubtotal(itens);
+    let total= aplicarCupom(subtotal, codigoCupom)
+    let desconto = subtotal - total;
+    return { subtotal: subtotal, desconto: desconto, total: total};
 }
 
 const itens = [
     { nome: "camiseta", preco: 50, quantidade: 2 },
     { nome: "tenis", preco: 150, quantidade: 1 }
 ];
-console.log(finalizarCompra(itens, "DESC10"));
+console.log(finalizarCompras(itens, "DESC10"));
 
 //Realizado os Merges Manualmente
