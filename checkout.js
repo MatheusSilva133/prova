@@ -42,3 +42,5 @@ const itens = [
     { nome: "tenis", preco: 150, quantidade: 1 }
 ];
 console.log(finalizarCompra(itens, "DESC10"));
+
+//Realizado os Merges Manualmente
